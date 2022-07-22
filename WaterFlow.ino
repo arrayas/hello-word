@@ -92,7 +92,7 @@ void loop() {
     if (flowMilliLitres !=0) 
     { 
       if (timelapsed > TIME_INTERVAL){
-      digitalWrite(LED_BUILTIN,HIGH);
+      //digitalWrite(LED_BUILTIN,HIGH);
       flag=true;
       //digitalWrite(RELE, HIGH); // rele high
       //delay(1000);
@@ -100,12 +100,13 @@ void loop() {
      }
      else 
      {
-      digitalWrite(LED_BUILTIN,LOW);
+      //digitalWrite(LED_BUILTIN,LOW);
       //digitalWrite(RELE, LOW); // rele low
       timelapsed=0;
       }
     
     if (flag==true){
+      digitalWrite(LED_BUILTIN,HIGH);
       digitalWrite(RELE, HIGH);
     }
     // Add the millilitres passed in this second to the cumulative total
