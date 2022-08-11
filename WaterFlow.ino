@@ -20,6 +20,7 @@ float flowRate;
 unsigned int flowMilliLitres;
 unsigned long timelapsed;
 unsigned long totalMilliLitres;
+unsigned long currentTime;
 unsigned long oldTime;
 unsigned long TIME_INTERVAL = 3;
 bool flag = false;
@@ -58,8 +59,9 @@ void setup() {
 }
 
 void loop() {
+  currentTime = millis();
   // Only processing counters once per second 
-  if((millis() - oldTime) > 1000){
+  if(unsigned long)(currentTime - oldTime) > 1000){
     
     // Disable the interrupt while calculating flow rate and sending the value to
     // the host
@@ -80,7 +82,7 @@ void loop() {
     // at this point, but it will still return the value it was set to just before
     // interrupts went away.
     
-    oldTime = millis();
+    oldTime = currentTime;
 
     // Divide the flow rate in litres/minute by 60 to determine how many litres have
     // passed through the sensor in this 1 second interval, then multiply by 1000 to
