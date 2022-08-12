@@ -75,7 +75,7 @@ void loop() {
     // this case) coming from the sensor.
 
     flowRate = ((1000.0 / (millis() - oldTime)) * pulseCount) / calibrationFactor;
-    timelapsed += (millis() - oldTime)/1000;
+    timelapsed += (currentTime - oldTime)/1000;
 
     // Note the time this processing pass was executed. Note that because we've
     // disabled interrupts the millis() function won't actually be incrementing right
